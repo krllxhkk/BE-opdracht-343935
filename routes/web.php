@@ -6,6 +6,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MagazijnmedewerkerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MagazijnController;
+use App\Http\Controllers\LeverancierController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,5 +41,7 @@ Route::get('/magazijn/{productId}/allergenen', [AllergeenController::class, 'sho
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
 });
-
+Route::get('/leveranciers', [LeverancierController::class, 'index'])
+    ->middleware(['auth', 'role'])
+    ->name('leveranciers.index');
 require __DIR__.'/auth.php';
