@@ -30,7 +30,7 @@
                                         Aantal verschillende producten
                                     </th>
                                     <th class="border px-4 py-2 text-center">
-                                        Acties
+                                        Toon producten
                                     </th>
                                 </tr>
                             </thead>
@@ -59,20 +59,25 @@
                                         </td>
 
                                         <td class="border px-4 py-2 text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg"
-     width="22"
-     height="22"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="1.7"
-     stroke-linecap="round"
-     stroke-linejoin="round">
-    <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
-    <path d="M3 8v9l9 5 9-5V8"/>
-    <path d="M12 13v9"/>
-</svg>
-                                        </td>
+    <a href="{{ route('leverancier.producten', $leverancier['Id']) }}"
+       class="inline-flex items-center justify-center text-blue-600 hover:text-blue-800"
+       title="Toon producten">
+
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="22"
+             height="22"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="1.7"
+             stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="m12 3 9 5-9 5-9-5 9-5Z"/>
+            <path d="M3 8v9l9 5 9-5V8"/>
+            <path d="M12 13v9"/>
+        </svg>
+    </a>
+</td>
                                     </tr>
                                 @endforeach
                             </tbody>
