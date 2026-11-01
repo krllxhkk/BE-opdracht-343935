@@ -59,5 +59,5 @@ Route::get('/leveranciers/{leverancierId}/producten/{productId}/nieuwe-levering'
 Route::post('/leveranciers/{leverancierId}/producten/{productId}/nieuwe-levering', [LeverancierController::class, 'store'])
     ->middleware(['auth', 'role'])
     ->name('leverancier.levering.store');
-    require __DIR__.'/auth.php';
 });
+require __DIR__.'/auth.php';
