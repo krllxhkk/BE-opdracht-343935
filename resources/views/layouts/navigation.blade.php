@@ -27,6 +27,10 @@
     <x-nav-link :href="route('magazijn.index')" :active="request()->routeIs('magazijn.index')">
         {{ __('Overzicht Magazijn Jamin') }}
     </x-nav-link>
+    <x-nav-link :href="route('leveranciers.index')"
+            :active="request()->routeIs('leveranciers.*')">
+    Overzicht Leveranciers
+</x-nav-link>
 
 </div>
 
