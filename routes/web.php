@@ -40,8 +40,24 @@ Route::get('/magazijn/{productId}/allergenen', [AllergeenController::class, 'sho
 
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
-});
+        // Overzicht van leveranciers
 Route::get('/leveranciers', [LeverancierController::class, 'index'])
     ->middleware(['auth', 'role'])
     ->name('leveranciers.index');
-require __DIR__.'/auth.php';
+
+// Producten van een leverancier
+Route::get('/leveranciers/{leverancierId}/producten', [LeverancierController::class, 'show'])
+    ->middleware(['auth', 'role'])
+    ->name('leverancier.producten');
+
+// Formulier voor een nieuwe levering
+Route::get('/leveranciers/{leverancierId}/producten/{productId}/nieuwe-levering', [LeverancierController::class, 'create'])
+    ->middleware(['auth', 'role'])
+    ->name('leverancier.levering.create');
+
+// Nieuwe levering opslaan
+Route::post('/leveranciers/{leverancierId}/producten/{productId}/nieuwe-levering', [LeverancierController::class, 'store'])
+    ->middleware(['auth', 'role'])
+    ->name('leverancier.levering.store');
+    require __DIR__.'/auth.php';
+});
